@@ -18,7 +18,7 @@
             <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="110.0" style="-fx-background-color: transparent;" text="Goal" textFill="WHITE" />
             <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="110.0" style="-fx-background-color: transparent;" text="Finance" textFill="WHITE" />
             <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="110.0" style="-fx-background-color: transparent;" text="Projects" textFill="WHITE" />
-            <MenuBar prefHeight="50.0" prefWidth="110.0" style="-fx-background-color: transparent;" styleClass="-fx-alignment: center;" stylesheets="@style.css">
+            <MenuBar prefHeight="50.0" prefWidth="110.0" style="-fx-background-color: transparent;" styleClass="-fx-alignment: center;">
               <menus>
                 <Menu mnemonicParsing="false" text="Profile">
                   <items>

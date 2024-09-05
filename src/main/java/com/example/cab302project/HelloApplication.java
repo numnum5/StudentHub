@@ -10,8 +10,8 @@ import java.io.IOException;
 public class HelloApplication extends Application {
 
     public static final String TITLE = "Student Hub";
-    public static final int WIDTH = 1300;
-    public static final int HEIGHT = 700;
+    public static final int WIDTH = 770;
+    public static final int HEIGHT = 560;
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("hello-view.fxml"));
