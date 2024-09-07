@@ -5,6 +5,7 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 
@@ -31,8 +32,10 @@
                <menus>
                   <Menu mnemonicParsing="false" text="Goal">
                      <items>
-                        <MenuItem mnemonicParsing="false" style="-fx-alignment: CENTER; -fx-content-display: CENTER;" text="GPA Calculator" />
-                        <MenuItem mnemonicParsing="false" text="Summary" />
+                        <MenuItem mnemonicParsing="false" style="-fx-alignment: CENTER; -fx-content-display: CENTER;" text="GPA Graph" />
+                        <MenuItem mnemonicParsing="false" text="GPA Calculator" />
+                        <MenuItem mnemonicParsing="false" style="-fx-alignment: CENTER; -fx-content-display: CENTER;" text="Goal List" />
+                        <MenuItem mnemonicParsing="false" style="-fx-alignment: CENTER; -fx-content-display: CENTER;" text="Planner" />
                      </items>
                   </Menu>
                </menus>
@@ -41,12 +44,27 @@
                </padding>
             </MenuBar>
             <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="110.0" style="-fx-background-color: transparent;" text="Finance" />
-            <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="110.0" style="-fx-background-color: transparent;" text="Projects" />
+            <MenuBar prefHeight="50.0" prefWidth="110.0" style="-fx-background-color: Transparent;">
+              <menus>
+                <Menu mnemonicParsing="false" text="Projects">
+                  <items>
+                    <MenuItem mnemonicParsing="false" text="Document Storage" />
+                        <MenuItem mnemonicParsing="false" text="Grades" />
+                  </items>
+                </Menu>
+              </menus>
+               <padding>
+                  <Insets left="28.0" top="12.0" />
+               </padding>
+            </MenuBar>
             <MenuBar layoutX="615.0" layoutY="10.0" prefHeight="50.0" prefWidth="110.0" style="-fx-background-color: transparent;" styleClass="-fx-alignment: center;">
                <menus>
                   <Menu mnemonicParsing="false" text="Profile">
+                     <graphic />
                      <items>
-                        <MenuItem mnemonicParsing="false" styleClass="-fx-alignment: center;" text="Close" />
+                        <MenuItem mnemonicParsing="false" styleClass="-fx-alignment: center;" text="Login" />
+                        <MenuItem mnemonicParsing="false" styleClass="-fx-alignment: center;" text="Register" />
+                        <MenuItem mnemonicParsing="false" styleClass="-fx-alignment: center;" text="Expert Contacts" />
                      </items>
                   </Menu>
                </menus>
@@ -56,6 +74,5 @@
             </MenuBar>
          </children>
       </HBox>
-      <Button layoutX="586.0" layoutY="181.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="110.0" style="-fx-background-color: transparent;" text="Profile" textFill="WHITE" />
    </children>
 </AnchorPane>
