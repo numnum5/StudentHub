@@ -39,14 +39,31 @@ public class RegisterController {
     private Button loginButton;
 
     @FXML
+    private Text warningLabel;
+
+    @FXML
     private void Submit()
     {
-        String firstName = firstNameField.getText();
-        String lastName = lastNameField.getText();
-        String userName = usernameField.getText();
-        String password = passwordField.getText();
-        User user = new User(firstName, lastName, userName, password);
-        Connection.addUser(user);
+        try{
+            String firstName = firstNameField.getText();
+            String lastName = lastNameField.getText();
+            String userName = usernameField.getText();
+            String password = passwordField.getText();
+
+                User user = new User(firstName, lastName, userName, password);
+                Connection.addUser(user);
+
+            if(!Connection.userUnique)
+            {
+                warningLabel.setText("Username must be Unique.");
+            }
+            else{
+                warningLabel.setText("Successfully Registered.");
+
+            }
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
 
     }
     @FXML

@@ -9,6 +9,8 @@ public class User {
 
     // Constructor for creating a new User object
     public User(String firstName, String lastName, String username, String password) {
+        this.firstName = firstName;
+        this.lastName = lastName;
         this.password = password;
         this.username = username;
     }
