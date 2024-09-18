@@ -50,6 +50,11 @@ public class RegisterController {
         String lastName = lastNameField.getText();
         String userName = usernameField.getText();
         String password = passwordField.getText();
+        // All fields are X.
+        assertEquals("X", firstName);
+        assertEquals("X", lastName);
+        assertEquals("X", userName);
+        assertEquals("X", password);
 
         if(firstName.isEmpty() || lastName.isEmpty() || userName.isEmpty() || password.isEmpty())
         {

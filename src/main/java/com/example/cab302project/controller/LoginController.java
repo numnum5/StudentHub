@@ -54,6 +54,8 @@ public class LoginController {
         String userName = usernameField.getText();
         String password = passwordField.getText();
 
+        assertEquals("X", userName);
+        assertEquals("X", password);
         if(userName.isEmpty() || password.isEmpty())
         {
             warningLabel.setText("All fields must be filled.");
