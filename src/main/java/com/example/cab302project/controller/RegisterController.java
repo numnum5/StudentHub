@@ -50,6 +50,7 @@ public class RegisterController {
             String userName = usernameField.getText();
             String password = passwordField.getText();
 
+<<<<<<< Updated upstream
                 User user = new User(firstName, lastName, userName, password);
                 Connection.addUser(user);
 
@@ -63,6 +64,27 @@ public class RegisterController {
             }
         } catch (Exception e) {
             throw new RuntimeException(e);
+=======
+        if(userName.isEmpty() || lastName.isEmpty() || firstName.isEmpty() || password.isEmpty())
+        {
+            warningLabel.setText("All fields must be filled.");
+        }
+
+        else
+        {
+            User user = new User(firstName, lastName, userName, password);
+
+            Connection.addUser(user);
+
+            if(Connection.userUnique)
+            {
+                warningLabel.setText("Successfully Registered.");
+            }
+            else
+            {
+                warningLabel.setText("User already exists.");
+            }
+>>>>>>> Stashed changes
         }
 
     }

@@ -31,11 +31,37 @@ public class LoginController {
     private Button submitButton;
 
     @FXML
+<<<<<<< Updated upstream
+=======
+    private Text warningLabel;
+
+    @FXML
+    private Button registerButton;
+
+
+
+    @FXML
+    private void Register()
+    {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("register-ui.fxml"));
+            Scene newScene = new Scene(fxmlLoader.load());
+            Stage currentStage = (Stage) registerButton.getScene().getWindow();
+
+            currentStage.setScene(newScene);
+            currentStage.show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    @FXML
+>>>>>>> Stashed changes
     private void Submit()
     {
         String userName = usernameField.getText();
         String password = passwordField.getText();
 
+<<<<<<< Updated upstream
         boolean userExists = Connection.userExists(userName.toLowerCase());
         boolean passwordCorrect = Connection.passwordCorrect(userName, password);
         if(userExists)
@@ -46,16 +72,46 @@ public class LoginController {
                     FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("home.fxml"));
                     Scene newScene = new Scene(fxmlLoader.load());
                     Stage currentStage = (Stage) submitButton.getScene().getWindow();
+=======
 
-                    currentStage.setScene(newScene);
-                    currentStage.show();
+        if(userName.isEmpty() || password.isEmpty())
+        {
+            warningLabel.setText("Username or Password cant be empty.");
+        }
+        else
+        {
+            boolean userExists = Connection.userExists(userName.toLowerCase());
+            if(userExists)
+            {
+                boolean passwordCorrect = Connection.passwordCorrect(userName, password);
+                if(passwordCorrect)
+                {
+                    try {
+                        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("main-view.fxml"));
+                        Scene newScene = new Scene(fxmlLoader.load(), 800, 600);
+                        Stage currentStage = (Stage) submitButton.getScene().getWindow();
+                        MainController controller = fxmlLoader.getController();
 
-                } catch (IOException e) {
-                    e.printStackTrace();
+                        controller.setUsername(userName);
+                        controller.setNavBar();
+                        controller.loadPage("home.fxml");
+>>>>>>> Stashed changes
+
+                        currentStage.setScene(newScene);
+                        currentStage.show();
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                }
+                else
+                {
+                    warningLabel.setText("The password you have entered is wrong.");
                 }
             }
             else
             {
+<<<<<<< Updated upstream
                 warningLabel.setText("Password Is Incorrect.");
             }
         }
@@ -63,6 +119,11 @@ public class LoginController {
         {
             warningLabel.setText("User Does Not Exist. Please Register First.");
         }
+=======
+                warningLabel.setText("user " + userName + " does not exist.");
+            }
+        }
+>>>>>>> Stashed changes
     }
 
 }
