@@ -9,6 +9,8 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.Button;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextArea;
+import org.junit.jupiter.api.*;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class JournalController implements IController
 {
@@ -39,7 +41,9 @@ public class JournalController implements IController
         String moodString = MoodText.getText();
         String entryString = JournalText.getText();
         String userName = mainController.getUsername();
-
+        // All Inputs are X.
+        assertEquals("X", moodString);
+        assertEquals("X", entryString);
         connection.addEntry(entryString, moodString,userName);
     }
 
