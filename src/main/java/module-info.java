@@ -1,6 +1,7 @@
 module com.example.cab302project {
     requires javafx.controls;
     requires javafx.fxml;
+    requires org.junit.jupiter.api;
 
     requires org.kordamp.bootstrapfx.core;
     requires java.sql;

@@ -11,6 +11,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 import com.example.cab302project.model.User;
 import javafx.stage.Stage;
+import static org.junit.jupiter.api.Assertions.*;
 
 import java.io.IOException;
 
@@ -52,7 +53,6 @@ public class LoginController {
     {
         String userName = usernameField.getText();
         String password = passwordField.getText();
-
 
         if(userName.isEmpty() || password.isEmpty())
         {

@@ -158,7 +158,7 @@ public class SqliteUserDAO implements IUserDAO {
 
     public boolean userExists(String userName) {
         try {
-            String query = "SELECT * FROM users WHERE username = '" + userName + "'";
+            String query = "SELECT * FROM users WHERE username = '" + userName.toLowerCase() + "'";
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
 
@@ -174,7 +174,7 @@ public class SqliteUserDAO implements IUserDAO {
     public boolean passwordCorrect(String userName, String password)
     {
         try {
-            String query = "SELECT * FROM users WHERE username = '" + userName + "'";
+            String query = "SELECT * FROM users WHERE username = '" + userName.toLowerCase() + "'";
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);
 
