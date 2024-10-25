@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+
 /**
  * Controller for handling adding a new subject to the
  *  database and UI for add subject fxml page
@@ -48,42 +49,58 @@ public class AddSubjectController {
 
     // Method for loading semester values into combobox
     private void loadSemesters() {
+        semesterComboBox.setItems(FXCollections.observableArrayList(getAvailableSemesters()));
+    }
 
+    private List<String> getAvailableSemesters() {
         List<String> subjectNames = new ArrayList<>();
         subjectNames.add("Semester 1");
         subjectNames.add("Semester 2");
         subjectNames.add("Summer Semester");
-        semesterComboBox.setItems(FXCollections.observableArrayList(subjectNames));
+        return subjectNames;
     }
 
     // Method for handling when user submits information to create a new subject
     @FXML
     private void onSubmit() {
         try {
-            String subjectName = nameField.getText();
-            String subjectDescription = descriptionArea.getText();
-            String semester = semesterComboBox.getValue();
-            String unitCodeString = unitCode.getText();
-            if (subjectName.isEmpty() || subjectDescription.isEmpty() || semester == null) {
-                throw new Exception("Please fill all the input fields");
-            }
-            int semesterNumber;
-            if(unitCodeString.equals("Semester 1")){
-                semesterNumber = 1;
-            }else if(unitCodeString.equals("Semester 2")){
-                semesterNumber = 2;
-            }else {
-                semesterNumber = 3;
-            }
-            Subject subject = new Subject(semesterNumber, unitCodeString, subjectName, subjectDescription);
+            Subject subject = createSubjectFromInput();
             manager.addSubject(subject);
-            // Close the current window
-            Stage stage = (Stage) nameField.getScene().getWindow();
-            stage.close();
+            closeWindow();
         } catch (Exception error) {
             error.printStackTrace();
             showErrorPopup(error.getMessage());
         }
+    }
+
+    private Subject createSubjectFromInput() throws Exception {
+        String subjectName = nameField.getText();
+        String subjectDescription = descriptionArea.getText();
+        String semester = semesterComboBox.getValue();
+        String unitCodeString = unitCode.getText();
+
+        if (subjectName.isEmpty() || subjectDescription.isEmpty() || semester == null) {
+            throw new Exception("Please fill all the input fields");
+        }
+
+        int semesterNumber = mapSemesterToNumber(semester);
+        return new Subject(semesterNumber, unitCodeString, subjectName, subjectDescription);
+    }
+
+    private int mapSemesterToNumber(String semester) {
+        switch (semester) {
+            case "Semester 1":
+                return 1;
+            case "Semester 2":
+                return 2;
+            default:
+                return 3;
+        }
+    }
+
+    private void closeWindow() {
+        Stage stage = (Stage) nameField.getScene().getWindow();
+        stage.close();
     }
 
     // Method for displaing an error messsage
