@@ -1,5 +1,4 @@
-# CAB302Project
-CAB302 Project
+# Student Hub
 # GitHub Link:
 https://github.com/numnum5/StudentHub.git
 # Trello Link:
